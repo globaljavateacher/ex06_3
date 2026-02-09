@@ -62,35 +62,6 @@
 
 <button data-oper='list' class="btn btn-info">List</button>
 
-<div>
-	<img id="imgLike" src="/resources/img/like.png">
-	<span id="spanLike">0</span>
-</div>
-<script>
-	//let likeCnt = 0;
-	$(function(){
-		$.ajax({
-			  method: "get",
-			  url: "http://192.168.0.18:8080/like/get/<c:out value="${board.bno }"/>",
-			  data:{}
-		}).done(function( msg ) {
-			$('#spanLike').text(msg);
-		});
-	});
-	
-	$('#imgLike').on('click',function(){
-		$.ajax({
-			  method: "get",
-			  url: "http://192.168.0.18:8080/like/add/<c:out value="${board.bno }"/>",
-			  data:{}
-		}).done(function( msg ) {
-			$('#spanLike').text(msg);
-		});
-		//$('#spanLike').text(++likeCnt);
-	});
-
-</script>
-
 <%-- <form id='operForm' action="/boad/modify" method="get">
   <input type='hidden' id='bno' name='bno' value='<c:out value="${board.bno}"/>'>
 </form> --%>
@@ -631,64 +602,6 @@ modalModBtn.on("click", function(e){
 </script>
 
 
-
-<script>
-
-/* console.log("===============");
-console.log("JS TEST");
-
-var bnoValue = '<c:out value="${board.bno}"/>'; */
-
-//for replyService add test
-/* replyService.add(
-    
-    {reply:"JS Test", replyer:"tester", bno:bnoValue}
-    ,
-    function(result){ 
-      alert("RESULT: " + result);
-    }
-); */
-
-
-//reply List Test
-/* replyService.getList({bno:bnoValue, page:1}, function(list){
-    
-	  for(var i = 0,  len = list.length||0; i < len; i++ ){
-	    console.log(list[i]);
-	  }
-});
- */
-
- 
-/*  //17번 댓글 삭제 테스트 
- replyService.remove(17, function(count) {
-
-   console.log(count);
-
-   if (count === "success") {
-     alert("REMOVED");
-   }
- }, function(err) {
-   alert('ERROR...');
- });
- */
- 
-
-//12번 댓글 수정 
-/* replyService.update({
-  rno : 12,
-  bno : bnoValue,
-  reply : "Modified Reply...."
-}, function(result) {
-
-  alert("수정 완료...");
-
-});  
- */
-
-</script>  
-
-
 <script type="text/javascript">
 $(document).ready(function() {
   
@@ -781,8 +694,6 @@ $(document).ready(function(){
   
   function showImage(fileCallPath){
 	    
-    alert(fileCallPath);
-    
     $(".bigPictureWrapper").css("display","flex").show();
     
     $(".bigPicture")
