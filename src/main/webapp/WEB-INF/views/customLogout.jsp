@@ -68,7 +68,6 @@
 			$(".btn-success").on("click", function(e){
 				e.preventDefault();
 				$("form").submit();
-				
 			});
 		</script>
 	</body>
